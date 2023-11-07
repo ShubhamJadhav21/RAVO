@@ -10,6 +10,9 @@ const userSchema = mongoose.Schema(
       enum: ["seater", "cargoVehicle"],
       required: true,
     },
+    notInList:{
+      type:String,
+    },
     vechileFuelType: {
       type: String,
       enum: ["petrol", "diesel"],
@@ -28,13 +31,13 @@ const userSchema = mongoose.Schema(
       ],
       required: true,
     },
-    vechileAc: { type: String,enum:["ac","nonAc"], required: true  },
+    vechileAcStatus: { type: String,enum:["ac","nonAc"], required: true  },
     photos: [
       {
-        documentType: { type: String, required: true },
+        url: { type: String, required: true },
       },
     ],
-    extraInfo: { type: String ,required: true },
+    vechileExtraInfo: { type: String ,required: true },
   },
   {
     timestamps: true,
