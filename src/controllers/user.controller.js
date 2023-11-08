@@ -13,7 +13,7 @@ const createUser = async function(req, res){
         let data = req.body;
         if (Object.keys(data).length == 0) return res.status(400).send({ status: false, error: "Please enter details" });
 
-        let {firstName,lastName,mobileNumber,vechileType,vechileFuelType,fare,vechileSeater,vechileAcStatus,photos,vechileExtraInfo}=data
+        let {firstName,lastName,mobileNumber,vechileType,vechileFuelType,fare,vechileSeater,vechileAcStatus,photos,vechileExtraInfo,state,district,taluka}=data
 
         if(!firstName || firstName=="")return res.status(400).send({status:false,error:"firstName is required"})
 
