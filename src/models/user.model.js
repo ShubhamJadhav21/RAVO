@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
   {
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    mobileNumber: { type: Number, required: true },
-    state:{type: String, required: true },
-    district:{type: String, required: true },
-    taluka:{type: String, required: true },
+    firstName: { type: String,},
+    lastName: { type: String,},
+    mobileNumber: { type: Number,},
+    state:{type: String,},
+    district:{type: String,},
+    taluka:{type: String,},
     vechileType: {
       type: String,
       enum: ["seater", "cargoVehicle"],
@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema(
       enum: ["petrol", "diesel"],
       required: true,
     },
-    fare: { type: String, required: true },
+    fare: { type: String,},
     vechileSeater: {
       type: String,
       enum: [
@@ -34,13 +34,13 @@ const userSchema = mongoose.Schema(
       ],
       required: true,
     },
-    vechileAcStatus: { type: String,enum:["ac","nonAc"], required: true  },
+    vechileAcStatus: { type: String,enum:["ac","nonAc"], },
     photos: [
       {
-        url: { type: String, required: true },
+        url: { type: String,},
       },
     ],
-    vechileExtraInfo: { type: String ,required: true },
+    vechileExtraInfo: { type: String },
   },
   {
     timestamps: true,

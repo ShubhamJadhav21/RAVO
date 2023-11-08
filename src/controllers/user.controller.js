@@ -47,7 +47,7 @@ const createUser = async function(req, res){
         // if(!photos ||photos=="")return res.status(400).send({status:false, error:"provide photos"})
         // let cloudUrl
         // let imageUrl =[]
-        console.log("hhh",photos.length);
+        // console.log("hhh",photos.length);
         // if(photos){
         //     for(let i=0;i<photos.length;i++){
         //         cloudUrl =  await cloudinary.uploader.upload(photos[i].url,{public_id: Date.now()})  
