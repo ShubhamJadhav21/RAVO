@@ -1,0 +1,61 @@
+.postad {
+    display: flex;
+    /* align-items: center; */
+  }
+  
+  .postad span {
+    border: 2px solid black;
+    color: #002f34;
+    align-items: center;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    padding: 0.2rem;
+    width: 8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border-top-color: #23e5db;
+    border-bottom-color: #d94b8f;
+    border-left-color: #ffce32;
+    border-right-color: #3a77ff;
+    cursor: pointer;
+  }
+  
+  .postad_mob {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+    gap: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+  }
+  .postad_mob .icon{
+    font-size: 1.5rem;
+  }
+  
+  .postad_mob span {
+    font-size: 1.6rem;
+  }
+  
+  /* Use max-width: 768px to hide .postad on smaller screens */
+  @media screen and (max-width: 768px) {
+    .postad {
+      display: none;
+    }
+    .postad_mob {
+      display: flex;
+    }
+  }
+  
+  /* Use min-width: 769px to display .postad on larger screens */
+  @media screen and (min-width: 769px) {
+    .postad {
+      display: flex;
+    }
+    .postad_mob {
+      display: none;
+    }
+  }
+  

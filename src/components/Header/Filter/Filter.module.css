@@ -1,0 +1,8 @@
+.filter_icon{
+    font-size: 2.2rem;
+    padding: .4rem;
+    border-radius: 50%;
+}
+.filter_icon:hover{
+    background-color: #c2f1f0;
+}

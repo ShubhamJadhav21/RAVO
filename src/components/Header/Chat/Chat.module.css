@@ -1,0 +1,13 @@
+.chat{
+    font-size: 1.3rem;
+    padding: .5rem;
+    border-radius: 50%;
+}
+.chat:hover{
+    background-color: #c2f1f0;
+}
+@media screen and (max-width:768px) {
+    .chat{
+        font-size: 1.5rem;
+    }
+}

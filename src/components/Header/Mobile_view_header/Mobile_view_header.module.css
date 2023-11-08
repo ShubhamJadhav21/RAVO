@@ -1,0 +1,58 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+}
+
+.hamburger_icon {
+  font-size: 1.5rem;
+  
+}
+.logo {
+  font-size: 1.4rem;
+  color: #002f34;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.lft_content {
+  margin-left: 1rem;
+  margin-top: 0.4rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.rtl_content {
+  display: flex;
+  margin-top: 0.4rem;
+  margin-right: 1rem;
+
+  align-items: center;
+}
+.search_bar {
+    width: 100%;
+}
+
+/* Initial style for the closed menu */
+.side_bar {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: width 0.3s, left 0.3s;
+  background-color: hsl(0,0%,94%);
+}
+
+/* Style for the open menu */
+.side_bar_open {
+  width: 100%; /* Adjust the width as needed */
+  left: 0;
+}
+.close_icon{
+  position: absolute;
+  right: .8rem;
+  margin-top: .5rem;
+  font-size: 1.8rem;
+}

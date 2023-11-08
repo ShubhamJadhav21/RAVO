@@ -1,0 +1,17 @@
+
+.header_wrapper.menuOpen {
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    background-color: aquamarine;
+  }
+  
+  .header_wrapper {
+    max-width: 100%;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  

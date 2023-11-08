@@ -1,0 +1,28 @@
+.profile img {
+  height: 2rem;
+  width: auto;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 0.2rem;
+}
+.profile span {
+  display: none!important
+}
+.pcUserProfile_wrapper {
+  position: fixed;
+  top: 4rem;
+  
+}
+@media screen and (max-width: 768px) {
+  .profile span {
+    display: none;
+  }
+  .profile img {
+    height: 3rem;
+    width: auto;
+  }
+}

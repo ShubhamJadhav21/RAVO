@@ -1,0 +1,43 @@
+.wrapper {
+  background-color: hsl(0, 0%, 94%);
+  border: 1px solid #e1e3e5;
+  width: 16rem;
+}
+.btn {
+  background-color: #002f34;
+  color: white;
+  padding: 0.5rem;
+  width: 92%;
+  margin-left: 4%;
+  border-radius: 0.3rem;
+  margin-top: 1.5rem;
+}
+.profilepic{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+.profilepic span{
+    font-size:1.3rem; 
+}
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 0.9rem;
+}
+.logout span {
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 1rem 0;
+}
+.logout_icon {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width:768px) {
+  .wrapper{
+    display: none;
+  }
+}

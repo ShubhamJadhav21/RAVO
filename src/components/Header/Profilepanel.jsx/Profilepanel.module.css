@@ -1,0 +1,110 @@
+.wrapper {
+  background-color: hsl(0, 0%, 94%);
+  border: 1px solid #e1e3e5;
+  width: 16rem;
+}
+.profilepic {
+  display: flex;
+
+  align-items: center;
+}
+.options span{
+  font-size: 1.2rem;
+}
+.profilepic span {
+  margin-left: 0.8rem;
+  margin-top: 1rem;
+}
+.profile {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+.btn {
+  background-color: #002f34;
+  color: white;
+  padding: 0.5rem;
+  width: 92%;
+  margin-left: 4%;
+  border-radius: 0.3rem;
+  margin-top: 1.5rem;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 0.9rem;
+  margin-top: -0.6rem;
+}
+.logout span {
+  font-size: 1.2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 1rem 0;
+}
+.logout_icon {
+  font-size: 1.5rem;
+}
+.chat {
+  display: flex;
+  align-items: center;
+  margin-left: 0.7rem;
+  display: none;
+}
+.chat span,
+.notification span {
+  margin-left: 0.4rem;
+}
+.notification {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  display: none;
+}
+hr {
+  color: #bdbdbd;
+  border: none; /* Remove the default border */
+  border-top: 2px solid #bdbdbd;
+}
+
+.profile span {
+  color: #002f34;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    border: none;
+    height: 100vh;
+  }
+  .profile {
+    margin-top: 4rem;
+  }
+  .notification,
+  .chat {
+    display: block;
+    display: flex;
+  }
+
+  .profilepic span {
+    margin-top: 4rem;
+    font-size: 1.3rem;
+  }
+  .logout_icon {
+    font-size: 1.8rem;
+  }
+  .options {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    align-items: start;
+    
+  }
+  .btn {
+    margin-bottom: 2rem;
+  }
+  hr {
+    display: block;
+  }
+}
