@@ -17,6 +17,12 @@ const createUser = async function(req, res){
 
         if(!firstName || firstName=="")return res.status(400).send({status:false,error:"firstName is required"})
 
+        if(!state || state=="")return res.status(400).send({status:false,error:"state is required"})
+
+        if(!district || district=="")return res.status(400).send({status:false,error:"district is required"})
+        
+        if(!taluka || taluka=="")return res.status(400).send({status:false,error:"taluka is required"})
+
         if(!lastName || lastName=="")return res.status(400).send({status:false,error:"lastName is required"})
 
         if(!mobileNumber || mobileNumber=="")return res.status(400).send({status:false,error:"mobileNumber is required"})

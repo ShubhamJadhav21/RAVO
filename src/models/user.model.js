@@ -5,6 +5,9 @@ const userSchema = mongoose.Schema(
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     mobileNumber: { type: Number, required: true },
+    state:{type: String, required: true },
+    district:{type: String, required: true },
+    taluka:{type: String, required: true },
     vechileType: {
       type: String,
       enum: ["seater", "cargoVehicle"],
