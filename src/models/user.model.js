@@ -4,43 +4,48 @@ const userSchema = mongoose.Schema(
   {
     firstName: { type: String,},
     lastName: { type: String,},
-    mobileNumber: { type: Number,},
+    mobile: { type: Number,},
     state:{type: String,},
+    notName:{type: String,},
+    selectedCargoVehicle:{type: String,},
+    selectedVehicleType:{type: String,},
+    selectedSeaterVehicle:{type: String,},
     district:{type: String,},
-    taluka:{type: String,},
+    town_taluka:{type: String,},
     vechileType: {
       type: String,
-      enum: ["seater", "cargoVehicle"],
-      required: true,
+      // enum: ["seater", "cargoVehicle"],
+      
     },
     notInList:{
       type:String,
     },
-    vechileFuelType: {
+    fuel: {
       type: String,
-      enum: ["petrol", "diesel"],
-      required: true,
+      // enum: ["petrol", "diesel"],
+     
     },
     fare: { type: String,},
     vechileSeater: {
       type: String,
-      enum: [
-        "swift",
-        "ertiga",
-        "toyataInnova",
-        "bolero",
-        "traxCruiser",
-        "forceTempoTraveller",
-      ],
-      required: true,
+      // enum: [
+      //   "swift",
+      //   "ertiga",
+      //   "toyataInnova",
+      //   "bolero",
+      //   "traxCruiser",
+      //   "forceTempoTraveller",
+      // ],
+     
     },
-    vechileAcStatus: { type: String,enum:["ac","nonAc"], },
-    photos: [
-      {
-        url: { type: String,},
-      },
-    ],
-    vechileExtraInfo: { type: String },
+    acStatus: { type: String, }, // enum:["ac","nonAc"],
+    // photos: [
+    //   {
+    //     url: { type: String,},
+    //   },
+    // ],
+    selectedImages: [String],
+    des: { type: String },
   },
   {
     timestamps: true,
