@@ -1,14 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const multer = require("multer");
 const route = require("./routes/user.routes");
 const app = express();
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
+
+// Multer configuration
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(cors());
+
+// Your CORS configuration
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -33,6 +39,10 @@ mongoose
   )
   .then(() => console.log("MongoDb is connected"))
   .catch((err) => console.log(err));
+
+// Route to handle file uploads
+
+app.post("/user", upload.array("photos", 3), route);
 
 app.use("/", route);
 

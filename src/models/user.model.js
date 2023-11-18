@@ -2,30 +2,28 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
   {
-    firstName: { type: String,},
-    lastName: { type: String,},
-    mobile: { type: Number,},
-    state:{type: String,},
-    notName:{type: String,},
-    selectedCargoVehicle:{type: String,},
-    selectedVehicleType:{type: String,},
-    selectedSeaterVehicle:{type: String,},
-    district:{type: String,},
-    town_taluka:{type: String,},
+    firstName: { type: String },
+    lastName: { type: String },
+    mobile: { type: Number },
+    state: { type: String },
+    notName: { type: String },
+    selectedCargoVehicle: { type: String },
+    selectedVehicleType: { type: String },
+    selectedSeaterVehicle: { type: String },
+    district: { type: String },
+    town_taluka: { type: String },
     vechileType: {
       type: String,
       // enum: ["seater", "cargoVehicle"],
-      
     },
-    notInList:{
-      type:String,
+    notInList: {
+      type: String,
     },
     fuel: {
       type: String,
       // enum: ["petrol", "diesel"],
-     
     },
-    fare: { type: String,},
+    fare: { type: String },
     vechileSeater: {
       type: String,
       // enum: [
@@ -36,9 +34,8 @@ const userSchema = mongoose.Schema(
       //   "traxCruiser",
       //   "forceTempoTraveller",
       // ],
-     
     },
-    acStatus: { type: String, }, // enum:["ac","nonAc"],
+    acStatus: { type: String }, // enum:["ac","nonAc"],
     // photos: [
     //   {
     //     url: { type: String,},
