@@ -2,7 +2,10 @@
   background-color: hsl(0, 0%, 94%);
   border: 1px solid #e1e3e5;
   width: 16rem;
+ 
 }
+
+
 .profilepic {
   display: flex;
 

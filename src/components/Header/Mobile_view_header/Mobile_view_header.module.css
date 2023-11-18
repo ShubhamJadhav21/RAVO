@@ -1,3 +1,10 @@
+.container {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background-color: white;
+}
+
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -7,7 +14,6 @@
 
 .hamburger_icon {
   font-size: 1.5rem;
-  
 }
 .logo {
   font-size: 1.4rem;
@@ -30,7 +36,7 @@
   align-items: center;
 }
 .search_bar {
-    width: 100%;
+  width: 100%;
 }
 
 /* Initial style for the closed menu */
@@ -42,7 +48,7 @@
   top: 0;
   left: -100%;
   transition: width 0.3s, left 0.3s;
-  background-color: hsl(0,0%,94%);
+  background-color: hsl(0, 0%, 94%);
 }
 
 /* Style for the open menu */
@@ -50,9 +56,24 @@
   width: 100%; /* Adjust the width as needed */
   left: 0;
 }
-.close_icon{
+.close_icon {
   position: absolute;
-  right: .8rem;
-  margin-top: .5rem;
+  right: 0.8rem;
+  margin-top: 0.5rem;
   font-size: 1.8rem;
+}
+@media screen and (max-width: 769px) {
+  .search_bar {
+    margin-top: 1rem;
+    width: 95vw;
+    margin-left: 2.5vw;
+    outline-color: #23e5db;
+    border: 1.5px solid #002f34;
+    border-radius: 0.4rem;
+   
+  }
+  .container {
+    margin-top: 0rem;
+    z-index: 10;
+  }
 }

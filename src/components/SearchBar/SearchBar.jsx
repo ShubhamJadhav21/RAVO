@@ -1,21 +1,41 @@
 import React from "react";
+import style from './SearchBar.module.css';
 import { BiSearch } from "react-icons/bi";
-import style from "./SearchBar.module.css";
 
-export default function SearchBar() {
-
-
+export default function SearchBar({
+  placeholder,
+  downArrowIcon,
+  searchButtonIcon,
+  wrapper_style,
+  input_style,
+  btn_style,
+  down_arrow_style,
+  searchIcon
+}) {
   return (
-    <div className={style.wrapper_searchbar} >
-    
+    <div className={wrapper_style}>
+      {searchIcon && (
+        <span className={style.search_icon}>
+          {searchIcon}
+        </span>
+      )}
       <input
         type="text"
-        placeholder="Search Car, Tempo, and more..."
-        className={style.search_input}
+        placeholder={placeholder || "Search..."}
+        className={input_style}
       />
-        <button title="Search">
-        <BiSearch  className={style.search_icon}/>
-      </button>
+      {searchButtonIcon && (
+        <button
+          title="Search"
+          className={btn_style}
+          onClick={searchButtonIcon.onClick}
+        >
+          {searchButtonIcon.icon}
+        </button>
+      )}
+      {downArrowIcon && (
+        <span className={down_arrow_style}>{downArrowIcon}</span>
+      )}
     </div>
   );
 }

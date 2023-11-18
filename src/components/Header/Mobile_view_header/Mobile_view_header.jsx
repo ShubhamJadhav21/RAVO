@@ -19,6 +19,7 @@ export default function Mobile_view_header() {
 
   return (
     <>
+    <div className={style.container}>
       <div className={style.wrapper}>
         <div className={style.lft_content}>
           <div className={style.hamburger_menu}>
@@ -45,6 +46,7 @@ export default function Mobile_view_header() {
       >
         <div className={style.close_icon}><RxCross1 onClick={closeMenu}/></div>
         <Profilepanel closeMenu={closeMenu}/>
+      </div>
       </div>
     </>
   );

@@ -1,0 +1,32 @@
+@media screen and (min-width: 769px) {
+    .other_screen_header {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4.5rem;
+      width: 100%;
+      
+      z-index: 1000;
+    }
+  
+    .mobile_view_header {
+      display: none;
+    }
+  
+    main {
+      margin-top: 4.5rem; /* Adjust this value to match your header height */
+      padding: 20px; /* Optional: Add padding to the content area */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .other_screen_header {
+      display: none;
+    }
+  
+    .mobile_view_header {
+      display: block;
+    }
+  }
+  

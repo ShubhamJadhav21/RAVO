@@ -223,39 +223,42 @@ export default function Signup() {
     }
 
     
-    const formData = {
-      firstName,
-      lastName,
-      mobile: mob,
-      town_taluka,
-      district,
-      state,
-      selectedVehicleType,
-      selectedSeaterVehicle,
-      selectedCargoVehicle,
-      notName,
-      fuel,
-      fare,
-      acStatus,
-      desc,
-      selectedImages,
-      // Add other form fields as needed
-    };
-    fetch("http://localhost:3000/user", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Response data:', formData);
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+    const formData = new FormData();
+  formData.append("firstName", firstName);
+  formData.append("lastName", lastName);
+  formData.append("mobile", mob);
+  formData.append("town_taluka", town_taluka);
+  formData.append("district", district);
+  formData.append("state", state);
+  formData.append("selectedVehicleType", selectedVehicleType);
+  formData.append("selectedSeaterVehicle", selectedSeaterVehicle);
+  formData.append("selectedCargoVehicle", selectedCargoVehicle);
+  formData.append("notName", notName);
+  formData.append("fuel", fuel);
+  formData.append("fare", fare);
+  formData.append("acStatus", acStatus);
+  formData.append("desc", desc);
 
+  selectedImages.forEach((image, index) => {
+    if (image) {
+      formData.append(`photo${index}`, image); // Assuming image is a File object
+    }
+  });
+  
+
+  fetch("http://localhost:3000/user", {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Response data:', data);
+      // Handle success, e.g., redirect to another page
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle error
+    });
   // Clear the form fields and reset state
   setFirstName("");
   setLastName("");
@@ -290,7 +293,7 @@ export default function Signup() {
             id="firstname"
             name="FirstName"
             value={firstName}
-            className={style.first_name}
+            className={style.first_name }
             onChange={fName}
           />
           {errors.firstName && (
