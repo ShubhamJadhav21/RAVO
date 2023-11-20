@@ -4,41 +4,75 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 6.5rem;
-  
   justify-content: center;
 }
+
 .vehicleData_wrapper {
-  
   width: 20%;
-  border: 1px solid black;
-  height: 30%;
+  border: 1px solid #cfcdcd;
+  border-radius: .4rem;
+  height: 35%;
   margin: 0.5%;
   position: relative;
 }
-.vehicle_img{
-  margin:2.5% 2.5%;
-  border: 1px solid red;
+
+.vehicle_img {
+  margin: 2.5% 2.5%;
+  object-fit: cover;
   width: 95%;
-  height: 65%;
+  height: 60%;
 }
-.vehicle_name{
+
+.vehicle_name {
   position: absolute;
   right: 1rem;
-  bottom:18%;
+  bottom: 18%;
 }
+
 .owner {
   position: absolute;
-
   left: 1rem;
   bottom: 1.5rem;
-  /* color: #7a9395; */
 }
-.location{
-    position: absolute;
-    left: 1rem;
-    /* color: #537174; */
-    text-transform: capitalize;
-    bottom: .3rem;
-    font-size:small;
-    
+
+.location {
+  position: absolute;
+  left: 1rem;
+  text-transform: capitalize;
+  bottom: .3rem;
+  font-size: small;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 1000px) and (min-width: 769px) {
+  .vehicleData_wrapper {
+    width: 30%;
+    margin: 1.5%;
+  }
+  
+  .vehicle_name,
+  .owner,
+  .location {
+    font-size: smaller;
+  }
+}
+
+@media  screen and (max-width: 768px) {
+  .vehicleData_wrapper {
+    width: 45%;
+    margin: 2%;
+  }
+
+  .vehicle_name,
+  .owner,
+  .location {
+    font-size: smaller;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .vehicleData_wrapper {
+    width: 100%;
+    margin: 2%;
+  }
 }

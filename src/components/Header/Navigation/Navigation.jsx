@@ -11,7 +11,7 @@ import Filter from "../Filter/Filter";
 import PostAd from "../PostAd/PostAd";
 
 export default function Navigation() {
-  function handleSearchClick() {}
+  
   return (
     <div className={style.wrapper_header}>
       <div className={style.lft_content}>
@@ -37,7 +37,7 @@ export default function Navigation() {
             input_style={style.vehicle_search_input}
             searchButtonIcon={{
               icon: <BiSearch />,
-              onClick: handleSearchClick,
+              
             }}
             btn_style={style.custom_btn}
           />

@@ -44,3 +44,14 @@
     display: none;
   }
 }
+@media screen and (max-width:1040px) {
+  .wrapper{
+    width: 14rem;
+  }
+  .profilepic span{
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width:900px) {
+
+}

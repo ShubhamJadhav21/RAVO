@@ -59,3 +59,18 @@
     }
   }
   
+  /* for submit btn responsiveness */
+@media screen and (max-width:1170px) {
+  .postad span {
+    
+    width: 6rem !important;
+    
+  }
+}
+@media screen and (max-width:950px) {
+  .postad span {
+    
+    width: 6rem !important;
+    
+  }
+}

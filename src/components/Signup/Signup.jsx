@@ -24,6 +24,7 @@ export default function Signup() {
   const [fuel, setFuel] = useState("");
   const [fare, setFare] = useState("");
   const [acStatus, setAcStatus] = useState("");
+  
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
@@ -240,6 +241,8 @@ export default function Signup() {
   formData.append("desc", desc);
 
   selectedImages.forEach((image, index) => {
+    
+
     if (image) {
       formData.append(`photo${index}`, image); // Assuming image is a File object
     }
@@ -253,6 +256,8 @@ export default function Signup() {
     .then(response => response.json())
     .then(data => {
       console.log('Response data:', data);
+      console.log([...formData.entries()]);
+
       // Handle success, e.g., redirect to another page
     })
     .catch(error => {
@@ -364,6 +369,7 @@ export default function Signup() {
               id="vehicletype"
               value={selectedVehicleType}
               onChange={(e) => setSelectedVehicleType(e.target.value)}
+              className={style.vehicleTypeInput}
             >
               <option value="" disabled>
                 Select Type
@@ -435,6 +441,7 @@ export default function Signup() {
             <p>Choose Vehicle fuel type:</p>
             <label>
               <input
+              className={style.fuel_input}
                 type="radio"
                 name="Fuel_Type"
                 value="Petrol"
@@ -445,6 +452,7 @@ export default function Signup() {
             </label>
             <label>
               <input
+              className={style.fuel_input}
                 type="radio"
                 name="Fuel_Type"
                 value="Diesel"
@@ -455,7 +463,7 @@ export default function Signup() {
             </label>
           </div>
           {errors.fuel && <p className={style.error}>{errors.fuel}</p>}
-          <label htmlFor="fare" className={style.fare}>
+          <label htmlFor="fare" className={style.Fare}>
             Enter fare (per km):
           </label>
           <input
@@ -523,7 +531,7 @@ export default function Signup() {
                         type="file"
                         id={`photo${index}`}
                         name="vehicle_photos"
-                        accept="image/*"
+                        accept="image/*, image/jpg, image/jpeg, image/png"
                         className={style.photo_input}
                         onChange={(e) => handleImageUpload(e, index)}
                       />

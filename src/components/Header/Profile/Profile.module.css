@@ -26,3 +26,9 @@
     width: auto;
   }
 }
+
+@media screen and (max-width:900px) {
+  .pcUserProfile_wrapper{
+    margin-left: -9rem;
+  }
+}
