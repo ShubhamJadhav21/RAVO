@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./VehicleComponent.module.css";
+import { Link } from "react-router-dom";
 
 export default function VehicleComponent() {
   const [vehicleData, setVehicleData] = useState([]);
@@ -11,11 +12,11 @@ export default function VehicleComponent() {
       .then((result) => {
         console.log(result);
         setVehicleData(result.data);
-        setLoading(false); 
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data", error);
-        setLoading(false); 
+        setLoading(false);
       });
   }, []);
 
@@ -25,7 +26,11 @@ export default function VehicleComponent() {
         <p>Loading...</p>
       ) : (
         vehicleData.map((vehicle) => (
-          <div className={style.vehicleData_wrapper} key={vehicle._id}>
+          <Link
+            to={`/vehicle/${vehicle._id}`}
+            className={style.vehicleData_wrapper}
+            key={vehicle._id}
+          >
             <img
               src={vehicle.selectedImages[0]}
               alt="vehicleImage"
@@ -38,11 +43,10 @@ export default function VehicleComponent() {
                 vehicle.notName}
             </span>
             <div className={style.location}>
-              <span>{vehicle.town_taluka}</span>
+              <span>{vehicle.town_taluka},</span>
               <span>{vehicle.district}</span>
             </div>
-            
-          </div>
+          </Link>
         ))
       )}
     </div>

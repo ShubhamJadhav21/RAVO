@@ -18,6 +18,8 @@ const seaterVehicleNames = [
     "Mahindra Jeeto",
     "Chota Hathi",
     "Not in List"
+    
+
   ];
   
   export { seaterVehicleNames, cargoVehicleNames };

@@ -18,7 +18,7 @@
 
 .vehicle_img {
   margin: 2.5% 2.5%;
-  object-fit: cover;
+  object-fit: contain;
   width: 95%;
   height: 60%;
 }
@@ -36,6 +36,8 @@
 }
 
 .location {
+  display: flex;
+  gap: .3rem;
   position: absolute;
   left: 1rem;
   text-transform: capitalize;

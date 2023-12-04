@@ -1,0 +1,130 @@
+.vehicledetails_wrapper {
+  height: fit-content;
+  width: 98.5vw;
+  background-color: #f2f4f5;
+}
+
+.vehicle_photos {
+  width: 80%;
+  background-color: black;
+  margin-left: 10%;
+  height: 60vh;
+  margin-top: 2rem;
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.vehicle_photos img {
+  height: 100%;
+  width: auto;
+  transition: transform 0.5s ease-in-out;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.arrow:first-child {
+  left: 1rem;
+}
+
+.arrow:last-child {
+  right: 1rem;
+}
+.vehicle_details {
+  margin-left: 15%;
+  margin-top: 2%;
+}
+.name {
+  background-color: white;
+  width: 50%;
+  padding: 1rem;
+  height: fit-content;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  line-height: 1.8;
+  border-radius: 0.5rem;
+}
+.name h1 {
+  font-size: 2rem;
+  color: #002f34;
+  font-weight: 700;
+}
+.name:nth-child(1) {
+  align-items: center;
+  color: #658184;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+.fuel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.overview {
+  height: fit-content;
+  gap: 1.5rem;
+  flex-direction: column;
+  display: flex;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  padding: 1rem;
+  width: 50%;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+}
+
+.overview_text {
+  color: #668285;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.cooling {
+  margin-top: 2rem;
+}
+.ac_icon {
+  font-size: 2rem;
+  color: #658184;
+}
+.ac_status {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #002f34;
+}
+.ac {
+  display: flex;
+  gap: 0.5rem;
+}
+.ac div:nth-child(1) {
+  display: block;
+  color: #7a9295;
+  font-size: 1.1rem;
+}
+.ac span:nth-child(2) {
+  color: #426569;
+}
+.vehicle_location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.location_icon {
+  font-size: 2rem;
+}
+.location_text {
+  color: #7a9295;
+  font-size: 1.1rem;
+}
+.area {
+  color: #002f34;
+  font-weight: 600;
+  gap: .5rem;
+  display: flex;
+  font-size: 1.2rem;
+}

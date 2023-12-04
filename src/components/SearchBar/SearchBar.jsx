@@ -1,5 +1,5 @@
 import React from "react";
-import style from './SearchBar.module.css';
+import style from "./SearchBar.module.css";
 import { BiSearch } from "react-icons/bi";
 
 export default function SearchBar({
@@ -10,19 +10,22 @@ export default function SearchBar({
   input_style,
   btn_style,
   down_arrow_style,
-  searchIcon
+  searchIcon,
+  onClick,
+  
+  clearInputIcon,
+  clear_style,
+  clearInputFunction,
 }) {
   return (
     <div className={wrapper_style}>
-      {searchIcon && (
-        <span className={style.search_icon}>
-          {searchIcon}
-        </span>
-      )}
+      {searchIcon && <span className={style.search_icon}>{searchIcon}</span>}
       <input
         type="text"
         placeholder={placeholder || "Search..."}
         className={input_style}
+        onClick={onClick}
+        
       />
       {searchButtonIcon && (
         <button
@@ -33,6 +36,11 @@ export default function SearchBar({
           {searchButtonIcon.icon}
         </button>
       )}
+      {/* {value.length > 0 && (
+        <span className={clear_style} onClick={clearInputFunction}>
+          {clearInputIcon}
+        </span>
+      )} */}
       {downArrowIcon && (
         <span className={down_arrow_style}>{downArrowIcon}</span>
       )}

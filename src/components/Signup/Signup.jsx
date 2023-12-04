@@ -19,12 +19,15 @@ export default function Signup() {
   const [mob, setMob] = useState("");
   const [town_taluka, setTownTaluka] = useState("");
   const [district, setDistrict] = useState("");
+  const [seat, setSeat] = useState("");
+  const [load, setLoad] = useState("");
   const [state, setState] = useState("");
   const [desc, setDesc] = useState("");
   const [fuel, setFuel] = useState("");
   const [fare, setFare] = useState("");
   const [acStatus, setAcStatus] = useState("");
-  
+  const [vehicleNo, setVehicleNo] = useState("");
+
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
@@ -59,12 +62,19 @@ export default function Signup() {
     let State = e.target.value;
     setState(State);
   }
+  function getVehicleNo(e) {
+    let No = e.target.value;
+    No = No.replace(/\s/g, "");
+    No = No.toUpperCase(); // Corrected line
+    setVehicleNo(No);
+  }
+  
 
   const handleImageUpload = (e, index) => {
     const file = e.target.files[0];
     if (file) {
       const updatedImages = [...selectedImages];
-      updatedImages[index] = URL.createObjectURL(file);
+      updatedImages[index] = file;
       setSelectedImages(updatedImages);
     }
   };
@@ -90,6 +100,14 @@ export default function Signup() {
     const statusAc = e.target.value;
     setAcStatus(statusAc);
   };
+  const getSeatCapacity = (e) => {
+    const seatCap = e.target.value;
+    setSeat(seatCap);
+  };
+  const getLoadCapacity = (e) => {
+    const LoadCap = e.target.value;
+    setLoad(LoadCap);
+  };
 
   function gotoHome() {
     navigate("/");
@@ -97,7 +115,7 @@ export default function Signup() {
 
   function submit(e) {
     e.preventDefault();
-
+    const pattern = /^([A-Za-z]{2}\d{2}[A-Za-z]{2}\d{4})$/;
     const newErrors = {};
 
     if (firstName === "" || firstName.length < 2 || firstName.length > 10) {
@@ -117,20 +135,24 @@ export default function Signup() {
     } else {
       newErrors.mob = ""; // Clear the error
     }
-    if(town_taluka === "" || town_taluka.length < 2 || town_taluka.length > 20){
-      newErrors.town_taluka = "Please enter a valid town/taluka"
-    }else{
-      newErrors.town_taluka = ""
+    if (
+      town_taluka === "" ||
+      town_taluka.length < 2 ||
+      town_taluka.length > 20
+    ) {
+      newErrors.town_taluka = "Please enter a valid town/taluka";
+    } else {
+      newErrors.town_taluka = "";
     }
-    if(district === "" || district.length < 2 || district.length > 30){
-      newErrors.district = "Please enter a valid district"
-    }else{
-      newErrors.district = ""
+    if (district === "" || district.length < 2 || district.length > 30) {
+      newErrors.district = "Please enter a valid district";
+    } else {
+      newErrors.district = "";
     }
-    if(state === "" || state.length < 2 || state.length > 25){
-      newErrors.state = "Please enter a valid state"
-    }else{
-      newErrors.state = ""
+    if (state === "" || state.length < 2 || state.length > 25) {
+      newErrors.state = "Please enter a valid state";
+    } else {
+      newErrors.state = "";
     }
     // Validate "Choose Vehicle Type"
     if (selectedVehicleType === "") {
@@ -186,6 +208,21 @@ export default function Signup() {
         newErrors.notName = "";
       }
     }
+    if (!seat.trim()) {
+      newErrors.seat = "Please Enter the seat capacity";
+    } else if (!/^\d{1,3}$/.test(seat)) {
+      newErrors.seat = "Please Enter a valid seat capacity";
+    }
+    if (!load.trim()) {
+      newErrors.load = "Please Enter the load capacity";
+    } else if (
+      !/^\d{1,5}(?:(?:\s*kg)|(?:\s*quintal)|(?:\s*ton))$/.test(
+        load.replace(/\s/g, "")
+      )
+    ) {
+      newErrors.load =
+        "Please enter a valid load capacity with a valid suffix (kg/quintal/ton) and no spaces within the value";
+    }
 
     if (fuel === "") {
       newErrors.fuel = "Please choose a fuel type";
@@ -193,11 +230,11 @@ export default function Signup() {
       newErrors.fuel = "";
     }
 
-    if (!/^\d{1,5}$/.test(fare)) {
-      newErrors.fare = "Please enter a valid fare (1 to 5 digits)";
-    } else {
-      newErrors.fare = "";
-    }
+    // if (!/^\d{1,5}$/.test(fare)) {
+    //   newErrors.fare = "Please enter a valid fare (1 to 5 digits)";
+    // } else {
+    //   newErrors.fare = "";
+    // }
 
     if (acStatus === "") {
       newErrors.acStatus = "Please choose the vehicle AC status";
@@ -211,6 +248,11 @@ export default function Signup() {
     // } else {
     //   newErrors.desc = "";
     // }
+    if (!pattern.test(vehicleNo)) {
+      newErrors.vehicleNo = "Please enter a valid vehicle number";
+    } else {
+      newErrors.vehicleNo = "";
+    }
     if (selectedImages.every((image) => !image)) {
       newErrors.photo = "At least one photo is required";
     } else {
@@ -223,64 +265,58 @@ export default function Signup() {
       return; // There are errors, do not proceed
     }
 
-    
     const formData = new FormData();
-  formData.append("firstName", firstName);
-  formData.append("lastName", lastName);
-  formData.append("mobile", mob);
-  formData.append("town_taluka", town_taluka);
-  formData.append("district", district);
-  formData.append("state", state);
-  formData.append("selectedVehicleType", selectedVehicleType);
-  formData.append("selectedSeaterVehicle", selectedSeaterVehicle);
-  formData.append("selectedCargoVehicle", selectedCargoVehicle);
-  formData.append("notName", notName);
-  formData.append("fuel", fuel);
-  formData.append("fare", fare);
-  formData.append("acStatus", acStatus);
-  formData.append("desc", desc);
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("mobile", mob);
+    formData.append("town_taluka", town_taluka);
+    formData.append("district", district);
+    formData.append("state", state);
+    formData.append("selectedVehicleType", selectedVehicleType);
+    formData.append("selectedSeaterVehicle", selectedSeaterVehicle);
+    formData.append("selectedCargoVehicle", selectedCargoVehicle);
+    formData.append("Seat", seat);
+    formData.append("Load", load);
+    formData.append("notName", notName);
+    formData.append("fuel", fuel);
+    formData.append("fare", fare);
+    formData.append("acStatus", acStatus);
+    formData.append("desc", desc);
 
-  selectedImages.forEach((image, index) => {
-    
-
-    if (image) {
-      formData.append(`photo${index}`, image); // Assuming image is a File object
-    }
-  });
-  
-
-  fetch("http://localhost:3000/user", {
-    method: 'POST',
-    body: formData
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Response data:', data);
-      console.log([...formData.entries()]);
-
-      // Handle success, e.g., redirect to another page
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      // Handle error
+    selectedImages.forEach((image, index) => {
+      if (image) {
+        formData.append(`photo${index}`, image);
+      }
     });
-  // Clear the form fields and reset state
-  setFirstName("");
-  setLastName("");
-  setMob("");
-  setTownTaluka("");
-  setDistrict("");
-  setState("");
-  setSelectedVehicleType("");
-  setSelectedSeaterVehicle("");
-  setSelectedCargoVehicle("");
-  setNotName("");
-  setFuel("");
-  setFare("");
-  setAcStatus("");
-  setDesc("");
-  setSelectedImages(Array.from({ length: 10 }, () => null));
-}
+
+    axios
+      .post("http://localhost:3000/user", formData)
+      .then((response) => {
+        console.log("Response data:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    // Clear the form fields and reset state
+    setFirstName("");
+    setLastName("");
+    setMob("");
+    setTownTaluka("");
+    setDistrict("");
+    setState("");
+    setSelectedVehicleType("");
+    setSelectedSeaterVehicle("");
+    setSelectedCargoVehicle("");
+    setSeat("");
+    setLoad("");
+    setNotName("");
+    setFuel("");
+    setFare("");
+    setAcStatus("");
+    setDesc("");
+    setVehicleNo("");
+    setSelectedImages(Array.from({ length: 10 }, () => null));
+  }
   return (
     <>
       <div className={style.backarrow_wrapper}>
@@ -291,14 +327,16 @@ export default function Signup() {
       </div>
 
       <div className={style.wrapper}>
-        <form action="">
+        <form action="/user" method="post" enctype="multipart/form-data">
+          <p className={style.person_info}>Personal Info</p>
+
           <label htmlFor="firstname">Enter First Name:</label>
           <input
             type="text"
             id="firstname"
             name="FirstName"
             value={firstName}
-            className={style.first_name }
+            className={style.first_name}
             onChange={fName}
           />
           {errors.firstName && (
@@ -362,6 +400,8 @@ export default function Signup() {
             />
           </div>
           {errors.state && <p className={style.error}>{errors.state}</p>}
+          <p className={style.vehicle_info}>Vehicle Info</p>
+
           <div className={style.vehicle_type}>
             <label htmlFor="vehicletype">Choose Vehicle Type</label>
             <select
@@ -381,6 +421,7 @@ export default function Signup() {
           {errors.selectedVehicleType && (
             <p className={style.error}>{errors.selectedVehicleType}</p>
           )}
+
           {selectedVehicleType === "Seater" && (
             <div className={style.seater_vehicle}>
               <label htmlFor="seaterVehicleName">Choose Seater Vehicle :</label>
@@ -399,6 +440,19 @@ export default function Signup() {
                   </option>
                 ))}
               </select>
+            </div>
+          )}
+          {selectedVehicleType === "Seater" && (
+            <div className={style.seater_capicity}>
+              <label htmlFor="seatercapacity">Maximum Seat Capacity</label>
+              <input
+                type="text"
+                id="seatercapacity"
+                name="seat capacity"
+                className={style.input_maxseat}
+                onChange={getSeatCapacity}
+              />
+              {errors.seat && <p className={style.error}>{errors.seat}</p>}
             </div>
           )}
           {selectedVehicleType === "CargoVehicle" && (
@@ -421,6 +475,23 @@ export default function Signup() {
               </select>
             </div>
           )}
+          {selectedVehicleType === "CargoVehicle" && (
+            <div>
+              <label htmlFor="cargocapacity">Maximum load capacity</label>
+              <input
+                type="text"
+                id="cargocapacity"
+                className={style.cargo_capacity}
+                onChange={getLoadCapacity}
+              />
+              <span className={style.extra_info}>
+                Enter your load capacity like this, For Ex : 123kg or 123quintal
+                123ton
+              </span>
+              {errors.load && <p className={style.error}>{errors.load}</p>}
+            </div>
+          )}
+
           <label htmlFor="not_name">
             If not in the list vehicle name, Enter here ⬇️
           </label>
@@ -441,7 +512,7 @@ export default function Signup() {
             <p>Choose Vehicle fuel type:</p>
             <label>
               <input
-              className={style.fuel_input}
+                className={style.fuel_input}
                 type="radio"
                 name="Fuel_Type"
                 value="Petrol"
@@ -452,7 +523,7 @@ export default function Signup() {
             </label>
             <label>
               <input
-              className={style.fuel_input}
+                className={style.fuel_input}
                 type="radio"
                 name="Fuel_Type"
                 value="Diesel"
@@ -502,6 +573,24 @@ export default function Signup() {
             className={style.desc}
             onChange={getDesc}
           ></textarea>
+          <div>
+            <label htmlFor="vehicleNum">Enter Vehicle Number</label>
+            <input
+              type="text"
+              id="vehicleNum"
+              value={vehicleNo}
+              className={style.vehicle_no}
+              onChange={getVehicleNo}
+            />
+            <span className={style.extra_info}>
+              Enter your vehicle no. in this format&nbsp;-&nbsp;
+              <span className={style.num}>MH11AZ1234.</span> We collect vehicle
+              numbers for safety purposes.
+            </span>
+            {errors.vehicleNo && (
+              <p className={style.error}>{errors.vehicleNo}</p>
+            )}
+          </div>
           <div className={style.ad_photos}>
             <span>Upload Up to 10 photos</span>
             <div className={style.photo_wrapper}>

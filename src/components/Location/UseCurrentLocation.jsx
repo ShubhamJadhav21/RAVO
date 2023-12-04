@@ -1,8 +1,6 @@
-
 import React from 'react'
 
-export default function SearchHistory() {
-  
+export default function UseCurrentLocation() {
   return (
     <div>
       

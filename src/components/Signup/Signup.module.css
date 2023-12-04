@@ -12,7 +12,10 @@
 .desc,
 .town_taluka,
 .district,
-.state {
+.state,
+.input_maxseat,
+.cargo_capacity,
+.vehicle_no {
   padding-left: 0.8rem;
 }
 
@@ -23,12 +26,23 @@
   border-radius: 0.4rem;
   width: 100%;
 }
+.person_info,
+.vehicle_info {
+  padding: 0.5rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 700;
+  border-bottom: 1px solid #e3edf9;
+  border-width: 100%;
+}
 .first_name,
 .last_name,
 .phone,
 .town_taluka,
 .district,
-.state {
+.state,
+.input_maxseat,
+.cargo_capacity,
+.vehicle_no {
   height: 2.5rem;
   width: 100%;
   border-radius: 0.4rem;
@@ -199,7 +213,10 @@ label {
   font-size: 0.9rem;
   left: 1.2rem;
 }
-
+.num {
+  color: #002f34;
+  font-size: 0.8rem;
+}
 @media screen and (max-width: 422px) {
   .fuel_type {
     flex-direction: column;
@@ -247,10 +264,11 @@ label {
   .phone,
   .town_taluka,
   .district,
-  .state {
+  .state,
+  .input_maxseat {
     height: 2.4rem;
     border-radius: 0.4rem;
-    outline-color: #1cc9c1;
+    outline-color: #1cc9c1 ;
   }
   .fuel_type span {
     margin-top: -0.7rem;

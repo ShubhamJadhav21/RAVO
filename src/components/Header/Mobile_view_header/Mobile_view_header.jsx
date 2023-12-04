@@ -1,16 +1,22 @@
-import React, { useState, useRef } from "react";
+// Mobile_view_header.jsx
+import React, { useState } from "react";
+import style from "./Mobile_view_header.module.css";
 import { HiOutlineMenu } from "react-icons/hi";
 import { RxCross1 } from "react-icons/rx";
-import style from "./Mobile_view_header.module.css";
-import Filter from "../Filter/Filter";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 import SearchBar from "../../SearchBar/SearchBar";
 import Profilepanel from "../Profilepanel.jsx/Profilepanel";
 import { BiSearch } from "react-icons/bi";
+import { useNavigate } from "react-router";
 
-export default function Mobile_view_header() {
+export default function Mobile_view_header({
+  searchVehicle,
+  setSearchVehicle,
+  getVehicleInput,
+}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchBarClicked, setIsSearchBarClicked] = useState(false);
-  
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -28,6 +34,10 @@ export default function Mobile_view_header() {
     setIsSearchBarClicked(false);
   };
 
+  const navigateToLocation = () => {
+    navigate("/location");
+  };
+
   return (
     <>
       <div className={style.container}>
@@ -42,7 +52,8 @@ export default function Mobile_view_header() {
             <div className={style.logo}>ravo</div>
           </div>
           <div className={style.rtl_content}>
-            <Filter />
+            <span onClick={navigateToLocation}>India</span>
+            <HiOutlineLocationMarker onClick={navigateToLocation}/>
           </div>
         </div>
         <div
@@ -55,7 +66,8 @@ export default function Mobile_view_header() {
           <span>
             <BiSearch className={style.search_icon} />
           </span>
-          <SearchBar/>
+
+          <SearchBar />
         </div>
         <div
           className={
