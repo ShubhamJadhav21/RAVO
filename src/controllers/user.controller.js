@@ -58,6 +58,40 @@ const getUser = async function (req, res) {
     res.status(500).send({ status: false, error: error.message });
   }
 };
+const loginUser = async function (req, res){
+try {
+  const {mobile} = req.body;
+  const otp = Math. floor(100000 + Math. random() * 900000);
+  const findUser = await userModel.findOne({mobile:mobile});
+  if(findUser && Object.keys(findUser).length > 0){
+    const saveUserOtp = await userModel.findOneAndUpdate({mobile:findUser.mobile},{otp:otp},{new:true}).select({ otp: 1 })
+    return  res.status(200).send({ status: true, data: saveUserOtp });
+  }else{
+    return res.status(400).send({ status: false, message: "NO User Found With Moblie Number, Please Register New",data:[] });
+  }
+} catch (error) {
+  res.status(500).send({ status: false, error: error.message });
+}
+}
+
+const verifyOtp = async function (req,res){
+  try {
+    const {mobile,otp} = req.body
+  const findUser = await userModel.findOne({mobile:mobile,otp:otp})
+  if(findUser && Object.keys(findUser).length > 0){
+    findUser.otp = null
+    findUser.save()
+    return res.status(200).send({ status: true, data: findUser, message:"OTP Match SuccessFully" });
+  }else{
+    return res.status(400).send({ status: false, message: "Please Check Mobile NUmber and OTP",data:[] });
+  }
+  } catch (error) {
+    res.status(500).send({ status: false, error: error.message });
+  }
+}
 
 module.exports.createUser = createUser;
 module.exports.getUser = getUser;
+module.exports.loginUser = loginUser;
+module.exports.verifyOtp = verifyOtp;
+
