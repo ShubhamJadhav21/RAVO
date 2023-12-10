@@ -1,11 +1,11 @@
 import React from 'react'
-import { MdOutlineNotificationsNone } from "react-icons/md";
+import { IoIosNotificationsOutline } from "react-icons/io";
 import style from './Notification.module.css'
 export default function Notifications() {
   return (
     <div>
       <div className={style.notifications}>
-            <MdOutlineNotificationsNone className={style.notify}/>
+            <IoIosNotificationsOutline className={style.notify}/>
           </div>
     </div>
   )

@@ -97,6 +97,7 @@ export default function Navigation() {
           </span>
         </div>
       </div>
+      
       <div className={style.postad}>
         <PostAd />
       </div>

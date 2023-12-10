@@ -1,11 +1,11 @@
 input{
-  padding-left: 2rem;
+  padding-left: .5rem !important;
   border: none;
   outline: none;
   width: 80vw;
   height: 2.3rem;
   display: inline-block;
-  outline-color: #1cc9c1 ;
+  outline-color: #4bc6ff;
 }
 .search_icon {
   color: #002f34;

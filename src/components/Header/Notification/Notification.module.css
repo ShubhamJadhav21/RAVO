@@ -1,11 +1,11 @@
 .notify{
-    font-size: 2.4rem;
+    font-size: 2.7rem;
     padding: .4rem;
     border-radius: 50%;
     
 }
 .notify:hover{
-    background-color: #c2f1f0;
+    background-color: #e2ebf7;
 }
 @media screen and (max-width:768px) {
     .notify{

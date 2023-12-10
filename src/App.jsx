@@ -21,7 +21,7 @@ export default function App() {
           <Route path='/vehicle/:_id' element={<VehiclesDetails />} />
           <Route path="/location" element={<Location />} />
 
-          <Login/>
+          
         </Routes>
       </>
     </>

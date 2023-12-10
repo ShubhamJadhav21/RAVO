@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  background-color: white;
+  background-color: #dce4f2;
   align-items: center;
 }
 
@@ -45,6 +45,8 @@
 }
 .search_bar {
   width: 100%;
+  background-color: white;
+  margin-bottom: .5rem;
 }
 
 /* Initial style for the closed menu */
@@ -56,7 +58,7 @@
   top: 0;
   left: -100%;
   transition: width 0.3s, left 0.3s;
-  background-color: hsl(0, 0%, 94%);
+  
 }
 
 /* Style for the open menu */
@@ -79,17 +81,18 @@
     display: flex;
     margin-left: 2.5vw;
     outline-color: #23e5db;
-    border: 2px solid #002f34;
-    border-radius: 0.4rem;
+    border: 2px solid #dce4f2;
+    border-radius: 0.5rem;
   }
   .clicked {
-    border-color: #23e5db;
+    border-color: #63878b;
   }
   .search_bar span {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 0.4rem;
+    margin-left: .5rem;
+    color: #a2a6ac;
   }
   .search_bar .search_icon {
     font-size: 1.5rem;

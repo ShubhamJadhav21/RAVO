@@ -5,7 +5,7 @@
   
   .postad span {
     border: 2px solid black;
-    color: #002f34;
+    color:#d8deef !important;
     align-items: center;
     font-weight: 500;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     border-radius: 0.5rem;
-    border-top-color: #23e5db;
+    border-top-color: #1f426e;
     border-bottom-color: #d94b8f;
     border-left-color: #ffce32;
     border-right-color: #3a77ff;
