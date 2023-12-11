@@ -16,12 +16,7 @@
 .hamburger_icon {
   font-size: 1.5rem;
 }
-.logo {
-  font-size: 1.4rem;
-  color: #002f34;
-  align-items: center;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
+
 .lft_content {
   margin-left: 1rem;
   margin-top: 0.4rem;
@@ -73,6 +68,9 @@
   font-size: 1.8rem;
 }
 @media screen and (max-width: 769px) {
+  .logo{
+    display: block;
+  }
   .search_bar {
     margin-top: 1rem;
     width: 95vw;

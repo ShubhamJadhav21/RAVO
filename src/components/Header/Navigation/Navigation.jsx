@@ -11,6 +11,7 @@ import Filter from "../Filter/Filter";
 import PostAd from "../PostAd/PostAd";
 import { TbCurrentLocation } from "react-icons/tb";
 import UseCurrentLocation from "../../Location/UseCurrentLocation";
+import Logo from "../Logo/Logo";
 
 export default function Navigation() {
   const [locationHistory, setLocationHistory] = useState(false);
@@ -20,7 +21,7 @@ export default function Navigation() {
   return (
     <div className={style.wrapper_header}>
       <div className={style.lft_content}>
-        <div className={style.logo}>ravo</div>
+        <div className={style.logo}><Logo/></div>
 
         <div className={style.location}>
           <SearchBar

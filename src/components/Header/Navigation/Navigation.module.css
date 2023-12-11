@@ -53,13 +53,7 @@
   color: #002f34;
 }
 .logo {
-  font-size: 2rem;
-  color: #002f34;
-  font-weight: 700;
-  display: flex;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  align-items: center;
-  letter-spacing: 0.1rem;
+  
 }
 
 .chat,

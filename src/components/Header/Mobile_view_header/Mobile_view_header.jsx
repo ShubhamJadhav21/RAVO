@@ -8,6 +8,7 @@ import SearchBar from "../../SearchBar/SearchBar";
 import Profilepanel from "../Profilepanel.jsx/Profilepanel";
 import { BiSearch } from "react-icons/bi";
 import { useNavigate } from "react-router";
+import Logo from "../Logo/Logo";
 
 export default function Mobile_view_header({
   searchVehicle,
@@ -49,7 +50,7 @@ export default function Mobile_view_header({
                 onClick={toggleMenu}
               />
             </div>
-            <div className={style.logo}>BookMaziGaadi</div>
+            <div className={style.logo}><Logo/></div>
           </div>
           <div className={style.rtl_content}>
             <span onClick={navigateToLocation}>India</span>
