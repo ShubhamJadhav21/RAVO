@@ -49,7 +49,7 @@ export default function Mobile_view_header({
                 onClick={toggleMenu}
               />
             </div>
-            <div className={style.logo}>ravo</div>
+            <div className={style.logo}>BookMaziGaadi</div>
           </div>
           <div className={style.rtl_content}>
             <span onClick={navigateToLocation}>India</span>
