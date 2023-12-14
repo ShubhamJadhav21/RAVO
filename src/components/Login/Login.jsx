@@ -52,11 +52,11 @@ export default function Login() {
         >
           Next
         </button>
-        <div className={style.or}>or</div>
+        {/* <div className={style.or}>or</div>
         <div className={style.login_google}>
           <img src={googlelogo} alt="googleLogo" />
           Continue with Google
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@
   
   .postad span {
     border: 2px solid black;
-    color:#d8deef !important;
+    /* color:#d8deef !important; */
     align-items: center;
     font-weight: 500;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;

@@ -1,13 +1,16 @@
 .container {
+  width: fit-content;
   display: flex;
-
+  height: 100vh;
+  width: 100vw;
+  padding: 1rem;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10%;
 }
 .wrapper_login {
-  height: 50%;
+  /* height: 50%; */
+  width: fit-content;
+  height: fit-content;
+
   padding: 1rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -48,8 +51,8 @@
   width: 24rem;
 }
 .enabledBtn {
-  background-color: #00a99d !important;
-
+ 
+ background-color: #00a99d !important;
   color: white !important;
 }
 .otp_btn {
@@ -63,7 +66,6 @@
   font-weight: 600;
   border-radius: 0.2rem;
   background-color: #cceeeb;
-  
 }
 .error {
   font-size: small;
@@ -99,8 +101,9 @@
 }
 @media screen and (max-width: 768px) {
   .wrapper_login {
-    margin-top: 2rem;
+    margin-top: 30%;
     box-shadow: none;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
   }
   .input_container {
     width: 90%;
@@ -122,5 +125,15 @@
   .mob {
     display: flex;
     justify-content: center;
+  }
+}
+@media screen and (max-width: 400px) {
+  .input_container {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .otp_btn {
+    width: 80%;
+    margin-left: 10%;
   }
 }

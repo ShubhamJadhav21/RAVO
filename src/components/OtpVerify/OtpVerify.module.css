@@ -1,0 +1,59 @@
+.otpverify_wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.code {
+  margin-top: 7%;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1f1f1f;
+
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.otp_input {
+  margin-top: 3%;
+  width: 30%;
+  border: 1px solid black;
+  height: 3rem;
+  padding-left: 1rem;
+}
+.inst span {
+  color: #181818;
+  font-weight: 600;
+}
+.verify_btn {
+  width: 30%;
+  height: 3rem;
+  background-color: #cceeeb !important;
+}
+.enabled_verify_btn {
+  background-color: #00a99d !important;
+}
+@media screen and (max-width: 768px) {
+  .otpverify_wrapper {
+    height: 100vh;
+    width: 100vw;
+  }
+  .code {
+    margin-top: 30%;
+    font-size: 1.4rem;
+  }
+  .inst {
+    margin-bottom: -1rem;
+    margin-top: -1rem;
+    margin-left: -2rem;
+    color: #181818;
+    font-weight: 400;
+  }
+  .otp_input {
+    width: 80%;
+    /* margin-top: 1.5%; */
+  }
+  .verify_btn {
+    width: 80%;
+  }
+}

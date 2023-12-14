@@ -14,7 +14,7 @@ export default function Profilepanel({closeMenu}) {
         </div>
         <span>Shubham Jadhav</span>
       </div>
-      <button className={style.btn}>View and edit profile</button>
+      <button className={style.btn}>Edit Profile</button>
       <hr />
       <div className={style.options}>
       <div className={style.postad} onClick={closeMenu}>
