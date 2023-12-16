@@ -103,6 +103,7 @@ export default function Signup() {
   const getSeatCapacity = (e) => {
     const seatCap = e.target.value;
     setSeat(seatCap);
+    console.log(seatCap);
   };
   const getLoadCapacity = (e) => {
     const LoadCap = e.target.value;
@@ -208,22 +209,33 @@ export default function Signup() {
         newErrors.notName = "";
       }
     }
-    if (!seat.trim()) {
-      newErrors.seat = "Please Enter the seat capacity";
-    } else if (!/^\d{1,3}$/.test(seat)) {
-      newErrors.seat = "Please Enter a valid seat capacity";
+    if (selectedVehicleType === "Seater") {
+      // Only perform seat capacity validation for Seater Vehicles
+      if (!seat.trim()) {
+        newErrors.seat = "Please Enter the seat capacity";
+      } else if (!/^\d{1,3}$/.test(seat.trim())) {
+        newErrors.seat = "Please Enter a valid seat capacity (1 to 3 digits)";
+      } else {
+        newErrors.seat = ""; // Clear the error
+      }
+    } else {
+      // Clear the seat capacity error for Cargo Vehicles
+      newErrors.seat = "";
     }
-    if (!load.trim()) {
-      newErrors.load = "Please Enter the load capacity";
-    } else if (
-      !/^\d{1,5}(?:(?:\s*kg)|(?:\s*quintal)|(?:\s*ton))$/.test(
-        load.replace(/\s/g, "")
-      )
-    ) {
-      newErrors.load =
-        "Please enter a valid load capacity with a valid suffix (kg/quintal/ton) and no spaces within the value";
+    if (selectedVehicleType === "CargoVehicle") {
+      // Only perform load capacity validation for Cargo Vehicles
+      if (!load.trim()) {
+        newErrors.load = "Please Enter the load capacity";
+      } else if (!/^\d+(kg|quintal|ton)$/.test(load.trim())) {
+        newErrors.load = "Please enter a valid load capacity with a valid suffix (kg/quintal/ton)";
+      } else {
+        newErrors.load = ""; // Clear the error
+      }
+    } else {
+      // Clear the load capacity error for Seater Vehicles
+      newErrors.load = "";
     }
-
+        
     if (fuel === "") {
       newErrors.fuel = "Please choose a fuel type";
     } else {
@@ -277,11 +289,13 @@ export default function Signup() {
     formData.append("selectedCargoVehicle", selectedCargoVehicle);
     formData.append("Seat", seat);
     formData.append("Load", load);
+    formData.append("VehicleNo", vehicleNo);
     formData.append("notName", notName);
     formData.append("fuel", fuel);
     formData.append("fare", fare);
     formData.append("acStatus", acStatus);
     formData.append("desc", desc);
+    console.log("FormData before sending:", formData);
 
     selectedImages.forEach((image, index) => {
       if (image) {
