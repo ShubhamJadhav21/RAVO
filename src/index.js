@@ -1,3 +1,4 @@
+// Add the required imports
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -41,11 +42,14 @@ mongoose
   .catch((err) => console.log(err));
 
 // Route to handle file uploads
-
 app.post("/user", upload.any(), route);
 
+// Add the missing route for "/loginUser"
+app.post("/loginUser", route);
+
+// Use the defined routes
 app.use("/", route);
 
-app.listen(process.env.PORT || 8000, function () {
-  console.log("Express app running on port " + (process.env.PORT || 8000));
+app.listen(process.env.PORT || 3000, function () {
+  console.log("Express app running on port " + (process.env.PORT || 3000));
 });
