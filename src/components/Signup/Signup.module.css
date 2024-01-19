@@ -1,9 +1,10 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family:'Times New Roman', Times, serif;
   font-size: 1.1rem;
   position: relative;
+
 }
 .first_name,
 .last_name,
@@ -15,24 +16,25 @@
 .state,
 .input_maxseat,
 .cargo_capacity,
-.vehicle_no {
+.vehicle_no,.b_title {
   padding-left: 0.8rem;
 }
 
 .fare {
   height: 2.5rem;
   outline-color: #1cc9c1;
-  border: 1.2px solid #d6dede;
-  border-radius: 0.4rem;
+  border: 1.2px solid #5c7a7d;  ;
+  /* border-radius: 0.4rem; */
   width: 100%;
 }
 .person_info,
 .vehicle_info {
   padding: 0.5rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: 700;
+  font-family:Arial, Helvetica, sans-serif;
+  font-weight: 500;
   border-bottom: 1px solid #e3edf9;
   border-width: 100%;
+  color: #ec7459;
 }
 .first_name,
 .last_name,
@@ -42,11 +44,11 @@
 .state,
 .input_maxseat,
 .cargo_capacity,
-.vehicle_no {
+.vehicle_no,.b_title {
   height: 2.5rem;
   width: 100%;
-  border-radius: 0.4rem;
-  border: 1.2px solid #d6dede;
+  border-radius: 0.1rem;
+  border: 1.2px solid #5c7a7d;
   outline-color: #1cc9c1;
 }
 
@@ -58,11 +60,12 @@
 select {
   background-color: white;
   height: 2.8rem;
-  border-radius: 0.2rem;
+  /* border-radius: 0.2rem; */
 }
 textarea {
   outline-color: #1cc9c1;
-  border: 1.2px solid #d6dede;
+  border: 1.2px solid #5c7a7d;
+  
 }
 form {
   display: flex;
@@ -75,13 +78,22 @@ form {
 .extra_info {
   color: #5c7a81;
   font-size: 0.75rem;
+  
+  
 }
-
+#necess{
+  font-size: 1rem;
+  color:black;
+  
+}
 label {
   margin-top: 1rem;
+
   display: flex;
   align-items: center;
   color: #002f34;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 .vehicle_type {
   display: flex;
@@ -170,7 +182,7 @@ label {
   background-color: #002f34;
   border-radius: 0.2rem;
   text-align: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .disabled {
   border: 1px solid #d8dfe0;
@@ -181,7 +193,7 @@ label {
   border-radius: 0.2rem;
   text-align: center;
   margin-top: 2.5rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family:Arial, Helvetica, sans-serif;
 }
 .backarrow_wrapper {
   position: fixed;
@@ -214,7 +226,8 @@ label {
   left: 1.2rem;
 }
 .num {
-  color: #002f34;
+  color: #ec7459;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
 }
 @media screen and (max-width: 422px) {
@@ -248,10 +261,15 @@ label {
     margin: 1rem;
     margin-top: 4rem;
   }
+  label{
+    font-size: .95rem;
+  }
   form {
     width: 100%;
     margin: 0;
     padding: 1.5rem;
+    /* box-shadow: none; */
+    
   }
   .photo {
     width: 6.1rem;
@@ -267,7 +285,7 @@ label {
   .state,
   .input_maxseat {
     height: 2.4rem;
-    border-radius: 0.4rem;
+    /* border-radius: 0.4rem; */
     outline-color: #1cc9c1 ;
   }
   .fuel_type span {

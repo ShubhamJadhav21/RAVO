@@ -7,6 +7,9 @@ input{
   display: inline-block;
   outline-color: #4bc6ff;
 }
+input::placeholder{
+  font-size: .97rem;
+}
 .search_icon {
   color: #002f34;
   font-size: 1.3rem;

@@ -2,6 +2,7 @@
   background-color: #f0f5ff;
   border: 1px solid #e1e3e5;
   width: 16rem;
+  font-family: Arial, Helvetica, sans-serif;
  
 }
 
@@ -41,8 +42,7 @@
 }
 .logout span {
   font-size: 1.2rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 1rem 0;
 }
 .logout_icon {

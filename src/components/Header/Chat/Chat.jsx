@@ -7,6 +7,7 @@ export default function Chat() {
       <div className={style.chat}>
         <BsChatText className={style.chat_icon}/>
       </div>
+      
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import Location from "./components/Location/Location";
 import VehiclesDetails from "./components/VehiclesDetails/VehiclesDetails";
 import Login from "./components/Login/Login";
+import ReportAd from "./components/ReportAd/ReportAd";
 
 export default function App() {
   return (
@@ -20,7 +21,7 @@ export default function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path='/vehicle/:_id' element={<VehiclesDetails />} />
           <Route path="/location" element={<Location />} />
-
+          <Route path="/report" element={<ReportAd/>}/>
           
         </Routes>
       </>

@@ -68,7 +68,7 @@ export default function Mobile_view_header({
             <BiSearch className={style.search_icon} />
           </span>
 
-          <SearchBar />
+          <SearchBar placeholder='Search Cars, tempo and more...'/>
         </div>
         <div
           className={

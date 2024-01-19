@@ -3,13 +3,16 @@ import { TbCameraPlus } from "react-icons/tb";
 import { BiArrowBack } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
 import style from "./Signup.module.css";
-import { useNavigate } from "react-router";
 import { seaterVehicleNames, cargoVehicleNames } from "../../Data/Data";
 import axios from "axios";
+import { toast, ToastContainer } from 'react-toastify'; // Import toast
+import 'react-toastify/dist/ReactToastify.css'; // Import the stylesheet for toast
+import { useNavigate } from "react-router";
 export default function Signup() {
   const [selectedImages, setSelectedImages] = useState(
     Array.from({ length: 10 }, () => null)
   );
+  
   const [selectedVehicleType, setSelectedVehicleType] = useState("");
   const [notName, setNotName] = useState("");
   const [selectedSeaterVehicle, setSelectedSeaterVehicle] = useState("");
@@ -27,11 +30,28 @@ export default function Signup() {
   const [fare, setFare] = useState("");
   const [acStatus, setAcStatus] = useState("");
   const [vehicleNo, setVehicleNo] = useState("");
+  const [title, setTitle] = useState("");
 
   const [errors, setErrors] = useState({});
+   
+  function msg() {
+    toast.success('Your ad has been posted successfully', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
 
   const navigate = useNavigate();
-
+  const getTitle = (e) => {
+    const bTitle = e.target.value;
+    setTitle(bTitle);
+  };
   const getNotInListVehicleName = (e) => {
     const getVehicleName = e.target.value;
     setNotName(getVehicleName);
@@ -68,7 +88,6 @@ export default function Signup() {
     No = No.toUpperCase(); // Corrected line
     setVehicleNo(No);
   }
-  
 
   const handleImageUpload = (e, index) => {
     const file = e.target.files[0];
@@ -86,6 +105,7 @@ export default function Signup() {
   };
   const getDesc = (e) => {
     const desc = e.target.value;
+    console.log(desc);
     setDesc(desc);
   };
   const getFuelType = (e) => {
@@ -227,7 +247,8 @@ export default function Signup() {
       if (!load.trim()) {
         newErrors.load = "Please Enter the load capacity";
       } else if (!/^\d+(kg|quintal|ton)$/.test(load.trim())) {
-        newErrors.load = "Please enter a valid load capacity with a valid suffix (kg/quintal/ton)";
+        newErrors.load =
+          "Please enter a valid load capacity with a valid suffix (kg/quintal/ton)";
       } else {
         newErrors.load = ""; // Clear the error
       }
@@ -235,7 +256,7 @@ export default function Signup() {
       // Clear the load capacity error for Seater Vehicles
       newErrors.load = "";
     }
-        
+
     if (fuel === "") {
       newErrors.fuel = "Please choose a fuel type";
     } else {
@@ -254,12 +275,12 @@ export default function Signup() {
       newErrors.acStatus = "";
     }
 
-    // if (desc.trim().length < 50) {
-    //   newErrors.desc =
+    //  if (desc.trim().length < 50) {
+    //    newErrors.desc =
     //     "Please provide at least 50 characters of extra information";
-    // } else {
-    //   newErrors.desc = "";
-    // }
+    //  } else {
+    //    newErrors.desc = "";
+    //  }
     if (!pattern.test(vehicleNo)) {
       newErrors.vehicleNo = "Please enter a valid vehicle number";
     } else {
@@ -284,18 +305,18 @@ export default function Signup() {
     formData.append("town_taluka", town_taluka);
     formData.append("district", district);
     formData.append("state", state);
+    formData.append("title",title)
     formData.append("selectedVehicleType", selectedVehicleType);
     formData.append("selectedSeaterVehicle", selectedSeaterVehicle);
     formData.append("selectedCargoVehicle", selectedCargoVehicle);
-    formData.append("Seat", seat);
-    formData.append("Load", load);
-    formData.append("VehicleNo", vehicleNo);
+    formData.append("seat", seat);
+    formData.append("load", load);
+    formData.append("vehicleNo", vehicleNo);
     formData.append("notName", notName);
     formData.append("fuel", fuel);
     formData.append("fare", fare);
     formData.append("acStatus", acStatus);
     formData.append("desc", desc);
-    console.log("FormData before sending:", formData);
 
     selectedImages.forEach((image, index) => {
       if (image) {
@@ -304,13 +325,18 @@ export default function Signup() {
     });
 
     axios
-      .post("http://localhost:3000/user", formData)
-      .then((response) => {
-        console.log("Response data:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    .post("http://localhost:3000/user", formData)
+    .then((response) => {
+      console.log("Response data:", response.data);
+      msg(); // Call the msg() function here
+      setTimeout(() => {
+        gotoHome()
+      }, 1800);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+  
     // Clear the form fields and reset state
     setFirstName("");
     setLastName("");
@@ -318,6 +344,7 @@ export default function Signup() {
     setTownTaluka("");
     setDistrict("");
     setState("");
+    setTitle("")
     setSelectedVehicleType("");
     setSelectedSeaterVehicle("");
     setSelectedCargoVehicle("");
@@ -344,7 +371,9 @@ export default function Signup() {
         <form action="/user" method="post" enctype="multipart/form-data">
           <p className={style.person_info}>Personal Info</p>
 
-          <label htmlFor="firstname">Enter First Name:</label>
+          <label htmlFor="firstname">
+            Enter First Name <span id={style.necess}>*</span>
+          </label>
           <input
             type="text"
             id="firstname"
@@ -356,7 +385,9 @@ export default function Signup() {
           {errors.firstName && (
             <p className={style.error}>{errors.firstName}</p>
           )}
-          <label htmlFor="lastname">Enter Last Name:</label>
+          <label htmlFor="lastname">
+            Enter Last Name<span id={style.necess}>*</span>
+          </label>
           <input
             type="text"
             id="lastname"
@@ -366,7 +397,9 @@ export default function Signup() {
             onChange={lName}
           />
           {errors.lastName && <p className={style.error}>{errors.lastName}</p>}
-          <label htmlFor="mobile">Enter Mobile Number:</label>
+          <label htmlFor="mobile">
+            Enter Mobile Number <span id={style.necess}>*</span>
+          </label>
           <input
             type="text"
             id="mobile"
@@ -377,7 +410,9 @@ export default function Signup() {
           />
           {errors.mob && <p className={style.error}>{errors.mob}</p>}
           <div>
-            <label htmlFor="Town/Taluka">Enter your Town/Taluka :</label>
+            <label htmlFor="Town/Taluka">
+              Enter your Town/Taluka <span id={style.necess}>*</span>
+            </label>
             <input
               type="text"
               id="Town/Taluka"
@@ -391,7 +426,9 @@ export default function Signup() {
             <p className={style.error}>{errors.town_taluka}</p>
           )}
           <div>
-            <label htmlFor="District">Enter your District :</label>
+            <label htmlFor="District">
+              Enter your District <span id={style.necess}>*</span>
+            </label>
             <input
               type="text"
               id="District"
@@ -403,7 +440,9 @@ export default function Signup() {
           </div>
           {errors.district && <p className={style.error}>{errors.district}</p>}
           <div>
-            <label htmlFor="state">Enter your State :</label>
+            <label htmlFor="state">
+              Enter your State <span id={style.necess}>*</span>
+            </label>
             <input
               type="text"
               id="state"
@@ -415,9 +454,22 @@ export default function Signup() {
           </div>
           {errors.state && <p className={style.error}>{errors.state}</p>}
           <p className={style.vehicle_info}>Vehicle Info</p>
-
+          <div>
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              onChange={getTitle}
+              id="title"
+              className={style.b_title}
+            />
+            <span className={style.extra_info}>
+            Enter title of your business title. for ex: xyz tour & travels
+          </span>
+          </div>
           <div className={style.vehicle_type}>
-            <label htmlFor="vehicletype">Choose Vehicle Type</label>
+            <label htmlFor="vehicletype">
+              Choose Vehicle Type <span id={style.necess}>*</span>
+            </label>
             <select
               name="VehicleType"
               id="vehicletype"
@@ -438,7 +490,9 @@ export default function Signup() {
 
           {selectedVehicleType === "Seater" && (
             <div className={style.seater_vehicle}>
-              <label htmlFor="seaterVehicleName">Choose Seater Vehicle :</label>
+              <label htmlFor="seaterVehicleName">
+                Choose Seater Vehicle <span id={style.necess}>*</span>
+              </label>
               <select
                 name="seaterVehicleName"
                 id="seaterVehicleName"
@@ -458,7 +512,9 @@ export default function Signup() {
           )}
           {selectedVehicleType === "Seater" && (
             <div className={style.seater_capicity}>
-              <label htmlFor="seatercapacity">Maximum Seat Capacity</label>
+              <label htmlFor="seatercapacity">
+                Maximum Seat Capacity <span id={style.necess}>*</span>
+              </label>
               <input
                 type="text"
                 id="seatercapacity"
@@ -471,7 +527,9 @@ export default function Signup() {
           )}
           {selectedVehicleType === "CargoVehicle" && (
             <div className={style.cargo_vehicles}>
-              <label htmlFor="cargoVehicleName">Choose Cargo Vehicle :</label>
+              <label htmlFor="cargoVehicleName">
+                Choose Cargo Vehicle <span id={style.necess}>*</span>
+              </label>
               <select
                 name="cargoVehicleName"
                 id="cargoVehicleName"
@@ -491,7 +549,9 @@ export default function Signup() {
           )}
           {selectedVehicleType === "CargoVehicle" && (
             <div>
-              <label htmlFor="cargocapacity">Maximum load capacity</label>
+              <label htmlFor="cargocapacity">
+                Maximum load capacity <span id={style.necess}>*</span>
+              </label>
               <input
                 type="text"
                 id="cargocapacity"
@@ -523,7 +583,9 @@ export default function Signup() {
             but first choose the vehicle type.
           </span>
           <div className={style.fuel_type}>
-            <p>Choose Vehicle fuel type:</p>
+            <p>
+              Choose Vehicle fuel type <span id={style.necess}>*</span>
+            </p>
             <label>
               <input
                 className={style.fuel_input}
@@ -562,7 +624,9 @@ export default function Signup() {
           />
           {errors.fare && <p className={style.error}>{errors.fare}</p>}
           <div className={style.ac_status}>
-            <label htmlFor="air_conditioning_status">Vehicle AC:</label>
+            <label htmlFor="air_conditioning_status">
+              Vehicle AC <span id={style.necess}>*</span>
+            </label>
             <select
               id="air_conditioning_status"
               name="air_Conditioning_Status"
@@ -588,7 +652,9 @@ export default function Signup() {
             onChange={getDesc}
           ></textarea>
           <div>
-            <label htmlFor="vehicleNum">Enter Vehicle Number</label>
+            <label htmlFor="vehicleNum">
+              Enter Vehicle Number <span id={style.necess}>*</span>
+            </label>
             <input
               type="text"
               id="vehicleNum"
@@ -606,7 +672,9 @@ export default function Signup() {
             )}
           </div>
           <div className={style.ad_photos}>
-            <span>Upload Up to 10 photos</span>
+            <span>
+              Upload Up to 10 photos <span id={style.necess}>*</span>
+            </span>
             <div className={style.photo_wrapper}>
               {selectedImages.map((image, index) => (
                 <div className={style.photo} key={index}>
@@ -650,6 +718,18 @@ export default function Signup() {
           </div>
         </form>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
