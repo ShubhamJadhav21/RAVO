@@ -12,7 +12,7 @@ import Loader from "../loader/Loader";
 import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { GiPayMoney } from "react-icons/gi";
-import profileimg from "../../assets/profileimg.png";
+import PcSkeleton from '../AdSkeleton/PcSkeleton/PcSkeleton'
 
 const VehiclesDetails = () => {
   const { _id } = useParams();
@@ -87,8 +87,8 @@ const VehiclesDetails = () => {
   return (
     <div className={style.vehicledetails_wrapper}>
       {loading ? (
-        <div className={style.loading}>
-          <Loader />
+        <div>
+          <PcSkeleton/>
         </div>
       ) : (
         <div>
@@ -241,7 +241,10 @@ const VehiclesDetails = () => {
           </div>
         </div>
       )}
+      <div className={style.footer}>
       <Footer />
+      </div>
+      
     </div>
   );
 };
