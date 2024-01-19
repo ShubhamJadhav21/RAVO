@@ -3,6 +3,7 @@ import style from "./VehicleComponent.module.css";
 import { Link } from "react-router-dom";
 import Loader from "../loader/Loader";
 import Footer from "../Footer/Footer";
+import AdSkeleton from "../AdSkeleton/AdSkeleton";
 
 export default function VehicleComponent() {
   const [vehicleData, setVehicleData] = useState([]);
@@ -36,13 +37,16 @@ export default function VehicleComponent() {
 
     fetchData(); // Call the fetchData function when the component mounts
   }, []); // The empty dependency array ensures the effect runs only once on mount
+  const skeletonCount = 40;
 
   return (
     <>
       <div className={style.wrapper}>
         {loading ? (
-          <div className={style.loading}>
-            <Loader />
+          <div className={style.skeleton}>
+             {Array.from({ length: skeletonCount }).map((_, index) => (
+              <AdSkeleton key={index} />
+            ))}
           </div>
         ) : (
           vehicleData.map((vehicle) => (

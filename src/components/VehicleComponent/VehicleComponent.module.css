@@ -6,12 +6,14 @@
   margin-top: 6.5rem;
   justify-content: center;
 }
-
-.loading {
+.skeleton{
   display: flex;
+  height: 16rem;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 10%;
+  width: 100%;
 }
+
 .vehicleData_wrapper {
   width: 20%;
   border: 1px solid #cfcdcd;
@@ -60,7 +62,8 @@
     width: 30%;
     margin: 1.5%;
   }
-
+  
+  
   .vehicle_name,
   .owner,
   .location {
@@ -88,9 +91,7 @@
   }
 }
 @media screen and (max-width: 1050px) {
-  .loading {
-    margin-top: 50vh;
-  }
+  
 }
 @media screen and (min-width: 392px) and (max-width: 768px) {
   .vehicleData_wrapper {
@@ -102,5 +103,8 @@
   }
   .vehicle_name{
     top: 62%;
+  }
+  .skeleton{
+    height: 40rem;
   }
 }
