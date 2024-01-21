@@ -325,7 +325,7 @@ export default function Signup() {
     });
 
     axios
-    .post("http://localhost:3000/user", formData)
+    .post("https://ravoai.onrender.com/user", formData)
     .then((response) => {
       console.log("Response data:", response.data);
       msg(); // Call the msg() function here
