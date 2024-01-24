@@ -325,7 +325,7 @@ export default function Signup() {
     });
 
     axios
-    .post("https://ravoai.onrender.com/user", formData)
+    .post("https://book-gadi.onrender.com/user", formData)
     .then((response) => {
       console.log("Response data:", response.data);
       msg(); // Call the msg() function here
