@@ -5,7 +5,13 @@ import style from "./Profilepanel.module.css";
 import Chat from "../Chat/Chat";
 import Notifications from "../Notification/Notification";
 import PostAd from "../PostAd/PostAd";
+import { useNavigate } from "react-router";
+
 export default function Profilepanel({closeMenu}) {
+  const navigate = useNavigate()
+  function navigateLogin(){
+    navigate("/login")
+  }
   return (
     <div className={style.wrapper}>
       <div className={style.profilepic}>
@@ -14,7 +20,7 @@ export default function Profilepanel({closeMenu}) {
         </div>
         <span>Shubham Jadhav</span>
       </div>
-      <button className={style.btn}>Edit Profile</button>
+      <button className={style.btn} onClick={navigateLogin}>Login</button>
       <hr />
       <div className={style.options}>
       <div className={style.postad} onClick={closeMenu}>

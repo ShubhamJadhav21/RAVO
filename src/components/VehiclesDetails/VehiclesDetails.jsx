@@ -27,7 +27,7 @@ const VehiclesDetails = () => {
   };
 
   useEffect(() => {
-    fetch(`https://ravoai.onrender.com/users/${_id}`)
+    fetch(`https://book-gadi.onrender.com/users/${_id}`)
       .then((response) => response.json())
       .then((result) => {
         setVehicleDetails(result.data);

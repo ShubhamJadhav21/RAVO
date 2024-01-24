@@ -9,6 +9,7 @@ import Location from "./components/Location/Location";
 import VehiclesDetails from "./components/VehiclesDetails/VehiclesDetails";
 import Login from "./components/Login/Login";
 import ReportAd from "./components/ReportAd/ReportAd";
+import OtpVerify from "./components/OtpVerify/OtpVerify";
 
 export default function App() {
   return (
@@ -22,6 +23,8 @@ export default function App() {
           <Route path='/vehicle/:_id' element={<VehiclesDetails />} />
           <Route path="/location" element={<Location />} />
           <Route path="/report" element={<ReportAd/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/verify-otp" element={<OtpVerify/>}/>
           
         </Routes>
       </>

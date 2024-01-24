@@ -1,11 +1,33 @@
-.otpverify_wrapper {
-  width: 100vw;
-  height: 100vh;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.cmp {
+  font-size: 1.4rem;
+  margin-bottom: -6rem;
+  margin-top: 4rem;
+  cursor: pointer;
+}
+.back_home {
+  font-size: 1.8rem;
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+}
+.content_wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  max-width: 100%;
+
+  height: fit-content;
 }
+.otpverify_wrapper {
+  position: relative;
+}
+
 .code {
   margin-top: 7%;
   font-size: 1.8rem;
@@ -15,7 +37,7 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .otp_input {
-  margin-top: 3%;
+  margin-top: 0;
   width: 30%;
   border: 1px solid black;
   height: 3rem;
@@ -28,10 +50,14 @@
 .verify_btn {
   width: 30%;
   height: 3rem;
+  border: none;
   background-color: #cceeeb !important;
 }
 .enabled_verify_btn {
   background-color: #00a99d !important;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
 }
 @media screen and (max-width: 768px) {
   .otpverify_wrapper {

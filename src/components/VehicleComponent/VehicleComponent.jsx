@@ -21,7 +21,7 @@ export default function VehicleComponent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://ravoai.onrender.com/users");
+        const response = await fetch("https://book-gadi.onrender.com/users");
         const result = await response.json();
 
         // Shuffle the data array randomly

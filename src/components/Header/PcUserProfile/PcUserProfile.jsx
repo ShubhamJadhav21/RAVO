@@ -12,7 +12,7 @@ export default function PcUserProfile({ closeUserProfile }) {
         </div>
         <span>Shubham Jadhav</span>
       </div>
-      <button className={style.btn}>Edit Profile</button>
+      <button className={style.btn}>Login</button>
       <div className={style.logout} onClick={closeUserProfile}>
         <BiLogOut className={style.logout_icon} />
         <span>Logout</span>

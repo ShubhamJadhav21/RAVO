@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import style from "./Login.module.css";
 import googlelogo from "../../assets/googlelogo.jpg";
 import { useNavigate } from "react-router";
+import { IoMdArrowBack } from "react-icons/io";
 export default function Login() {
   
   const [mobileNumber, setMobileNumber] = useState("");
  const navigate = useNavigate()
   function isValidMobileNumber() {
-    const formattedNumber = mobileNumber.replace(/\D/g, ""); // Remove non-digit characters
+    const formattedNumber = mobileNumber.replace(/\D/g, ""); 
     return formattedNumber.length === 10;
   }
 
@@ -15,7 +16,8 @@ export default function Login() {
     if (isValidMobileNumber()) {
       console.log("Valid mobile number:", mobileNumber);
 
-      fetch("http://localhost:3000/loginUser", {
+      fetch(" https://book-gadi.onrender.com/loginUser", {
+       
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +40,11 @@ export default function Login() {
   }
 
   return (
+    <div className={style.login_wrapper}>
+      <div className={style.back}><IoMdArrowBack className={style.back_home}/></div>
+      <div className={style.cmp}>BookMyGaadi</div>
     <div className={style.container}>
+      
       <div className={style.wrapper_login}>
         <label htmlFor="num" className={style.mob}>
           Enter your mobile number
@@ -65,6 +71,7 @@ export default function Login() {
         >
           Next
         </button>
+        
         {/* 
         <div className={style.or}>or</div>
         <div className={style.login_google}>
@@ -73,6 +80,7 @@ export default function Login() {
         </div>
         */}
       </div>
+    </div>
     </div>
   );
 }
