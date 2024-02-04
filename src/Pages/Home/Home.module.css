@@ -1,9 +1,10 @@
 .wrapper {
     width: 98vw;
-    height: 90vh;
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
   }
   
   .vehicleData_wrapper {
@@ -41,6 +42,15 @@
       font-size:small;
       
   }
+  .footer{
+    width: 100%;
+    
+  }
+  .btn_loadmore{
+    
+    
+  }
+  
   
 @media screen and (min-width:769px) {
     .other_screen_header{

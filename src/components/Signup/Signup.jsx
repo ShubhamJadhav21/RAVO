@@ -54,6 +54,7 @@ export default function Signup() {
   };
   const getNotInListVehicleName = (e) => {
     const getVehicleName = e.target.value;
+    console.log(e.target.value);
     setNotName(getVehicleName);
   };
   function fName(e) {
@@ -220,8 +221,8 @@ export default function Signup() {
           newErrors.notName = "Only letters and spaces are allowed";
         } else if (notName.length < 2) {
           newErrors.notName = "Name should be at least 2 characters";
-        } else if (notName.length > 10) {
-          newErrors.notName = "Name should not be greater than 10 characters";
+        } else if (notName.length > 15) {
+          newErrors.notName = "Name should not be greater than 15 characters";
         } else {
           newErrors.notName = "";
         }

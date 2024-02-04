@@ -15,6 +15,7 @@ import Logo from "../Logo/Logo";
 
 export default function Navigation() {
   const [locationHistory, setLocationHistory] = useState(false);
+  const [search,setSearch] = useState('')
   function showLocationHistory() {
     setLocationHistory(true);
   }

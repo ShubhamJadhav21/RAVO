@@ -8,12 +8,14 @@
 }
 .btn {
   background-color: #002f34;
+  border: none;
   color: white;
   padding: 0.5rem;
   width: 92%;
   margin-left: 4%;
   border-radius: 0.3rem;
   margin-top: 1.5rem;
+  cursor: pointer;
 }
 .profilepic{
     margin-top: 1rem;

@@ -20,6 +20,7 @@ const VehiclesDetails = () => {
   const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showButtons, setShowButtons] = useState(true);
+  
 
   const navigate = useNavigate();
   const report = () => {
